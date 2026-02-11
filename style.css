@@ -1,7 +1,40 @@
+:root {
+    --mainbackground_color: #151b1f;
+    --general_menu_color: #0b1822;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background: hsl(208, 45%, 12%);
+    background-color: var(--mainbackground_color);
     font-family: Arial, Helvetica Neue, sans-serif;
 }
-h1{
-    color: aqua;
+
+.Menu {
+    width: 250px;
+    height: 100%;
+    border-right: 1px solid red;
+    position: fixed;
+
+    .Menu_Choice {
+    z-index: 2;
+    white-space: nowrap;
+    text-transform: uppercase;
+    line-height: 2;
+    }
+
+    .Box_Logo {
+        z-index: 1;
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    .img_Logo {
+        height: 30px;
+        width: 128px;
+    }
 }
