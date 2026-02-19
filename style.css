@@ -1,40 +1,308 @@
-:root {
-    --mainbackground_color: #151b1f;
-    --general_menu_color: #0b1822;
-}
+@import url('https://fonts.googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
 
 * {
+    font-family: "SN Pro", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    background-color: var(--mainbackground_color);
-    font-family: Arial, Helvetica Neue, sans-serif;
+:root {
+    --body-color: #0d1b2a;
+    --sidebar-color: #1b263b;
+    --primary-color: #ffc300;
+    --primary-color-light: #ffd60a;
+    --toggle-color: #00000010;
+    --text-color: #ffffff;
 }
 
-.Menu {
-    width: 250px;
-    height: 100%;
-    border-right: 1px solid red;
-    position: fixed;
+body{
+    height: 100vh;
+    background: var(--body-color);
+}
 
-    .Menu_Choice {
-    z-index: 2;
-    white-space: nowrap;
+.hidden { 
+    display: none !important; 
+}
+.view-container { 
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+}
+/*----------------- Reuse CSS -----------------*/
+.sidebar .text{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-color);
     text-transform: uppercase;
-    line-height: 2;
-    }
+}
 
-    .Box_Logo {
-        z-index: 1;
-        margin-left: 20px;
-        margin-bottom: 10px;
-    }
+.sidebar .img{
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+}
 
-    .img_Logo {
-        height: 30px;
-        width: 128px;
-    }
+.main .text{
+    font-weight: 500;
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+
+/*----------------- Sidebar CSS -----------------*/
+.sidebar li{
+    height: 50px;
+    margin: 10px 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon{
+    font-size: 18px;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar li .icon,
+.sidebar li .text{
+    transition: 0.2s ease;
+    color: var(--text-color);
+}
+.sidebar a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 8px 0;
+    transition: background-color 0.3s ease;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 260px;
+    padding: 10px 20px;
+    background-color: var(--sidebar-color);
+    padding: 20px;
+    transition: width 0.3s ease;
+    z-index: 100;
+}
+  
+.sidebar .img-text img{
+    width: 45px;
+    border-radius: 100px;
+}
+
+.sidebar header .img-text{
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .img-text .header-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.header-text .name{
+    font-weight: 800;
+}
+
+.header-text .profession{
+    font-weight: 500;
+    margin-top: -2px;
+}
+
+.sidebar li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.4s ease;
+}
+
+.sidebar li a:hover{
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 4px;
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--sidebar-color);
+}
+
+
+/*----------------- Main CSS -----------------*/
+.main {
+    z-index: 120;
+    position: relative;
+    left: 260px;
+    height: 100vh;
+    max-width: calc(100% - 350px);
+
+}
+
+
+.main .box{
+    margin-top: 20px;
+    margin-left: 350px;
+}
+
+.main .main-header{
+    display: flex;
+    flex-direction: column;
+    background-color: #d6c634;
+    width: 800px;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: left;
+    justify-content: left;;
+}
+
+.header-box{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: left;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.205);
+}
+
+.sub-box{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    align-items: left;
+    justify-content: left;
+}
+
+.main .Sub-Class{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.main .Class-header{
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    font-weight: 800;
+}
+.main .Sub-text{
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.box-start{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-start .button-start {
+    width: 50px;
+    height: 70px;
+    background-color: var(--toggle-color);
+    border-radius: 4px;
+    margin-left: 520px;
+}
+.button-start:hover {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/*----------------- Game CSS -----------------*/
+.game-header {  
+    padding: 15px; 
+    background: #2d2d2d; 
+    display: flex; 
+    justify-content: 
+    space-between; 
+    align-items: center; 
+    border-bottom: 1px solid #333;
+}
+.game-layout { 
+    display: flex; 
+    flex: 1; 
+    height: 100%; 
+}
+
+.quest-panel { 
+    width: 35%; 
+    background: var(--sidebar-color);
+    color: var(--text-color);
+    padding: 20px; 
+    border-right: 1px solid #333; 
+}
+.expected-box { 
+    margin-top: 20px; 
+    background: var(--body-color); 
+    padding: 10px; 
+    border-radius: 4px; 
+    border-left: 4px solid var(--primary-color-light); 
+}
+
+/* Right Panel (Code) */
+
+.code-panel { 
+    width: 65%; 
+    display: flex; 
+    flex-direction: column; 
+    padding: 20px; gap: 15px; 
+}
+
+#python-editor { 
+    flex: 1; 
+    background: #1e1e1e; 
+    color: #9cdcfe; 
+    font-family: "SN Pro", sans-serif;
+    font-size: 16px; 
+    padding: 15px; 
+    border: 1px solid #444; 
+    border-radius: 6px; 
+    resize: none; 
+}
+.console { 
+    background: #111; 
+    padding: 15px; 
+    border-radius: 6px; 
+    min-height: 80px; 
+    font-family: monospace; 
+    white-space: pre-wrap;
+}
+
+/* Buttons */
+.control-bar { 
+    display: flex; 
+    gap: 10px; 
+}
+.btn-run { 
+    background: rgb(44, 44, 42); 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+.btn-next { 
+    background: green; 
+    color: white; 
+    order: none; 
+    padding: 10px 20px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+.btn-next:disabled { 
+    background: #555; 
+    cursor: not-allowed; 
 }
